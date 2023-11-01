@@ -1,0 +1,33 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Welcome to my portfolio showcasing the culmination of my journey towards a BSc (Hons) in Computing and IT. This collection highlights my dedication, skills, and knowledge gained through various projects completed during my studies. Each project showcases my ability to conceptualize, design, develop, and implement solutions in the field of computing and IT.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Creative-Web-Works/Portfolio.git"
+  },
+  "keywords": [
+    "portfolio",
+    "website",
+    "design",
+    "responsive",
+    "web",
+    "design",
+    "HTML",
+    "CSS",
+    "JavaScript"
+  ],
+  "author": "Maria Robson",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Creative-Web-Works/Portfolio/issues"
+  },
+  "homepage": "https://github.com/Creative-Web-Works/Portfolio#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}

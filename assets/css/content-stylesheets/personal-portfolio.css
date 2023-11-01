@@ -1,0 +1,513 @@
+/* Custom properties/variables */
+:root {
+    --bs-primary: #652ff9;
+    --bs-gradient-primary: linear-gradient(180deg, rgba(123, 13, 241), rgba(19, 221, 221, 0));
+    --bs-purple: #652ff9;
+    --bs-yellow: #eaf606;
+    --bs-teal: #20c997;
+    --bs-white: #fff;
+    --bs-gray-dark: #343a40;
+    --bs-heading-color: #652ff9;
+    --bs-link-color: #f9682f;
+    --bs-link-hover-color: #aa52ee;
+    --bs-code-color: #30f50e;
+    --bs-highlight-bg: #62ee52;
+    --bs-body-color: #7b809a;
+    --bs-body-bg: #fff;
+    --bs-border-width: 1px;
+    --bs-border-style: solid;
+    --bs-border-color: #dee2e6;
+    --bs-border-color-translucent: rgb(8, 3, 3);
+  }
+
+  /* Additional CSS styles for responsiveness */
+  body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem; /* 18px */
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  h1,
+  h2 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    color: #652ff9;
+    text-shadow: 2rem 2rem 1rem #1f1f1f;
+  }
+
+  h1 {
+    font-size: 6rem;
+    padding-top: 10rem;
+    justify-content: space-between;
+    justify-content: space-around;
+  }
+
+  h2 {
+    font-size: 6.2rem;
+    padding-top: 2rem;
+  }
+
+  p {
+    font-size: 2rem;
+    padding: 2rem;
+    justify-content: space-evenly;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: #20c997;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+  }
+
+  /* Base reset */
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* box-sizing and font sizing */
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  html {
+    box-sizing: border-box;
+
+    /* Set font size for easy rem calculations
+     * default document font size = 16px, 1rem = 16px, 100% = 16px
+     * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
+    */
+    font-size: 62.5%;
+  }
+
+  /* A few media query to set some font sizes at different screen sizes.
+ * This helps automate a bit of responsiveness.
+ * The trick is to use the rem unit for size values, margin and padding.
+ * Because rem is relative to the document font size
+ * when we scale up or down the font size on the document
+ * it will affect all properties using rem units for the values.
+*/
+
+/* I am using the em unit for breakpoints
+ * The calculation is the following
+ * screen size divided by browser base font size
+ * As an example: a breakpoint at 980px
+ * 980px / 16px = 61.25em
+*/
+
+/* 1200px / 16px = 75em */
+@media (max-width: 75em) {
+    html {
+      font-size: 60%;
+    }
+  }
+
+  /* 980px / 16px = 61.25em */
+  @media (max-width: 61.25em) {
+    html {
+      font-size: 58%;
+    }
+  }
+
+  /* 460px / 16px = 28.75em */
+  @media (max-width: 28.75em) {
+    html {
+      font-size: 55%;
+    }
+  }
+
+  /* Base styles */
+
+
+
+  /* nav */
+
+  .menu {
+    filter: url("#shadowed-goo");
+  }
+
+  .menu-item, .menu-open-button {
+    background: #652ff9;
+    border-radius: 100%;
+    width: 80px;
+    height: 80px;
+    margin-left: -40px;
+    position: absolute;
+    top: 20px;
+    color: #20c997;
+    text-align: center;
+    line-height: 80px;
+    transform: translate3d(0, 0, 0);
+    transition: transform ease-out 200ms;
+  }
+
+  .menu-open {
+    display: none;
+  }
+
+  .hamburger {
+    width: 25px;
+    height: 3px;
+    background: #20c997;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -12.5px;
+    margin-top: -1.5px;
+    transition: transform 200ms;
+  }
+
+  .hamburger-1 {
+    transform: translate3d(0, -8px, 0);
+  }
+
+  .hamburger-2 {
+    transform: translate3d(0, 0, 0);
+  }
+
+  .hamburger-3 {
+    transform: translate3d(0, 8px, 0);
+  }
+
+  .menu-open:checked + .menu-open-button .hamburger-1 {
+    transform: translate3d(0, 0, 0) rotate(45deg);
+  }
+  .menu-open:checked + .menu-open-button .hamburger-2 {
+    transform: translate3d(0, 0, 0) scale(0.1, 1);
+  }
+  .menu-open:checked + .menu-open-button .hamburger-3 {
+    transform: translate3d(0, 0, 0) rotate(-45deg);
+  }
+
+  .menu {
+    position: absolute;
+    left: 50%;
+    margin-left: -190px;
+    padding-top: 20px;
+    padding-left: 190px;
+    width: 380px;
+    height: 250px;
+    box-sizing: border-box;
+    font-size: 20px;
+    text-align: left;
+  }
+
+  .menu-item:hover {
+    background: #20c997;
+    color: #652ff9;
+  }
+  .menu-item:nth-child(3) {
+    transition-duration: 70ms;
+  }
+  .menu-item:nth-child(4) {
+    transition-duration: 130ms;
+  }
+  .menu-item:nth-child(5) {
+    transition-duration: 190ms;
+  }
+  .menu-item:nth-child(6) {
+    transition-duration: 250ms;
+  }
+  .menu-item:nth-child(7) {
+    transition-duration: 310ms;
+  }
+
+  .menu-open-button {
+    z-index: 2;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition-duration: 400ms;
+    transform: scale(1.1, 1.1) translate3d(0, 0, 0);
+    cursor: pointer;
+  }
+
+  .menu-open-button:hover {
+    transform: scale(1.2, 1.2) translate3d(0, 0, 0);
+  }
+
+  .menu-open:checked + .menu-open-button {
+    transition-timing-function: linear;
+    transition-duration: 200ms;
+    transform: scale(0.8, 0.8) translate3d(0, 0, 0);
+  }
+
+  .menu-open:checked ~ .menu-item {
+    transition-timing-function: cubic-bezier(0.935, 0, 0.34, 1.33);
+  }
+  .menu-open:checked ~ .menu-item:nth-child(3) {
+    transition-duration: 160ms;
+    transform: translate3d(114.42548px, 11.48084px, 0);
+  }
+  .menu-open:checked ~ .menu-item:nth-child(4) {
+    transition-duration: 240ms;
+    transform: translate3d(77.18543px, 85.2491px, 0);
+  }
+  .menu-open:checked ~ .menu-item:nth-child(5) {
+    transition-duration: 320ms;
+    transform: translate3d(0.09158px, 114.99996px, 0);
+  }
+  .menu-open:checked ~ .menu-item:nth-child(6) {
+    transition-duration: 400ms;
+    transform: translate3d(-77.04956px, 85.37192px, 0);
+  }
+  .menu-open:checked ~ .menu-item:nth-child(7) {
+    transition-duration: 480ms;
+    transform: translate3d(-114.40705px, 11.66307px, 0);
+  }
+
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #name-section {
+    padding: 10;
+  }
+
+  #name-section .container-fluid {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+
+  .name-section p {
+    margin: 0;
+  }
+
+  #welcome-section {
+    padding: 0;
+    padding-top: 20rem;
+  }
+
+  #welcome-section .container-fluid {
+    padding: 0;
+  }
+
+  #welcome-section .card {
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+    padding-top: 0rem;
+    padding-bottom: 10rem;
+  }
+
+  .welcome-section p {
+    margin-left: 3rem;
+    margin-right:3rem;
+    margin-top: 2rem;
+  }
+
+ /* Projects section */
+ #projesct-section .container-fluid {
+    padding: 10;
+    padding-top: 5rem;
+  }
+
+ .projects-section {
+    text-align: center;
+    padding: 10rem 2rem;
+  }
+
+  .projects-section-header {
+    max-width: 640px;
+    margin: 0 auto 6rem auto;
+    padding-top: 20rem;
+  }
+
+  @media (max-width: 28.75em) {
+    .projects-section-header {
+      font-size: 4rem;
+    }
+  }
+
+  /* "Automagic" image grid using no media queries */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 4rem;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    margin-bottom: 6rem;
+  }
+
+  @media (max-width: 30.625em) {
+    .projects-section {
+      padding: 6rem 1rem;
+    }
+
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .project {
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+  }
+
+  .code {
+    color: #aa52ee;
+    transition: color 0.3s ease-out;
+  }
+
+  .project:hover .code {
+    color: #30f50e;
+  }
+
+  .project-image {
+    height: calc(100% - 6.8rem);
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .project-title {
+    font-size: 2rem;
+    padding: 2rem 0.5rem;
+    color: #150702;
+    background-color: #652ff9;
+  }
+
+  .project project-tile {
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  /* Contact section */
+
+  .contact-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 80vh;
+  }
+
+  .contact-section-header > h2 {
+    font-size: 4rem;
+  }
+
+  @media (max-width: 28.75em) {
+    .contact-section-header > h2 {
+      font-size: 4rem;
+    }
+  }
+
+  .contact-section-header > p {
+    font-style: italic;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 980px;
+    margin-top: 4rem;
+    flex-wrap: wrap;
+  }
+
+  .certificate-links {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 980px;
+    margin-top: 4rem;
+    flex-wrap: wrap;
+    padding-bottom: 10rem;
+  }
+
+  .contact-details {
+    font-size: 2.4rem;
+    transition: transform 0.3s ease-out;
+  }
+
+  .contact-details:hover {
+    transform: translateY(8px);
+  }
+
+  footer {
+    text-align: center;
+    padding: 5px 0;
+  }
+
+
+  .profile-link {
+    font-size: 3rem;
+
+  }
+
+
+  .move-on-hover {
+    -webkit-transition: 0.2s ease-out;
+    transition: 0.2s ease-out;
+    overflow: hidden;
+    -webkit-transform-origin: 50% 0;
+    -ms-transform-origin: 50% 0; /* Added -ms-transform-origin */
+    transform-origin: 50% 0;
+    -webkit-transform: perspective(999px) rotateX(0deg) translate3d(0, 0, 0);
+    -ms-transform: perspective(999px) rotateX(0deg) translate3d(0, 0, 0); /* Added -ms-transform */
+    transform: perspective(999px) rotateX(0deg) translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform, box-shadow;
+  }
+
+
+
+   .move-on-hover:hover {
+    -webkit-transform: perspective(999px) rotateX(7deg) translate3d(0px, -4px, 5px);
+    -ms-transform: perspective(999px) rotateX(7deg) translate3d(0px, -4px, 5px); /* Add this line */
+    transform: perspective(999px) rotateX(7deg) translate3d(0px, -4px, 5px);
+  }
+
+
+
+  /* Add these media queries at the end of your CSS file */
+
+@media (max-width: 767px) {
+    /* Styles for screens smaller than 768px */
+    #name-section {
+      display: block !important;
+    }
+  }
+
+  @media (min-width: 768px) {
+    /* Styles for screens larger than or equal to 768px */
+    #name-section {
+      display: flex !important;
+    }
+  }
+
+  /*Colour Changing Gradient Background*/
+
+#gradclr, #gradclr1, body {
+  background: linear-gradient(-45deg, #62ee52, #f92f2f, #f7f71e, #2f6dfd);
+  background-size: 700% 700%;
+  -webkit-animation: gradient 15s ease infinite;
+          animation: gradient 15s ease infinite;
+  height: 110vh;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
